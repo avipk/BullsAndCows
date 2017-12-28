@@ -1,16 +1,41 @@
-import React from 'react';
-import {PIN_MAX_VALUE} from '../constants';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
+import {PIN_MAX_VALUE, PIN_DEFAULT_ICON} from '../constants';
 
-function Pin({value, icon="\u26AB"}) {
-	const val = parseInt(value, 10);
-	let jsx = null;	
-	if(Number.isInteger(val) && val <= PIN_MAX_VALUE) {
-		jsx = <div className={`pin pin-color-${val}`} data-icon={icon}><span className="is-visually-hidden">{val}</span></div>;
-	}else{
-		jsx = <div className="pin pin-unknown">{val}</div>;
+class Pin extends PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.click = this.click.bind(this);
 	}
-	
-	return jsx;
+
+	click() {
+		this.props.onClickHandler(this.props.value);
+	}
+
+	render() {
+		const valueClassName = (this.props.value <= PIN_MAX_VALUE) ? 'is-visually-hidden' : null;
+		const clickHandler = (this.props.onClickHandler !== null) ? this.click : null;
+
+		return (
+			<div 
+				className={`pin pin-color-${this.props.value}`} 
+				data-icon={this.props.icon}
+				onClick={clickHandler}>
+					<span className={valueClassName}>{this.props.value}</span>
+			</div>
+		);
+	}	
 }
+
+Pin.propTypes = {
+	value: PropTypes.number.isRequired,
+	icon: PropTypes.string,
+	onClickHandler: PropTypes.func
+};
+
+Pin.defaultProps = {
+	icon: PIN_DEFAULT_ICON
+};
 
 export default Pin;

@@ -1,3 +1,4 @@
 const PIN_MAX_VALUE = 6;
+const PIN_DEFAULT_ICON = "\u26AB";
 
-export {PIN_MAX_VALUE};
+export {PIN_MAX_VALUE, PIN_DEFAULT_ICON};
