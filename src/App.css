@@ -1,24 +1,60 @@
-.App {
+html {
+  font-size: 16px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.is-visually-hidden{
+  position: absolute;
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  width: 1px; 
+  margin: -1px; 
+  padding: 0; 
+  border: 0; 
+}
+
+.pin{
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;  
+  border-radius: 50%;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.pin:before{
+  content: attr(data-icon);
+  font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.pin-color-1 {
+  color: blue;
 }
 
-.App-intro {
-  font-size: large;
+.pin-color-2 {
+  color: red;  
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.pin-color-3 {
+  color: green;
+}
+
+.pin-color-4 {
+  color: yellow;
+}
+
+.pin-color-5 {
+  color: lightblue;
+}
+
+.pin-color-6 {
+  color: orange;
+}
+
+.pin-unknown:before{
+  content: '';
 }
