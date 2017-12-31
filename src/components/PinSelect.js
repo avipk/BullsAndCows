@@ -14,7 +14,7 @@ class PinSelect extends Component {
 		this.toggleOptions = this.toggleOptions.bind(this);
 		this.selectOption = this.selectOption.bind(this);
 	}
-
+	
 	toggleOptions() {
 		const optionsState = (this.state.state === 'collapsed') ? 'expanded' : 'collapsed';
 		this.setState({ state : optionsState });

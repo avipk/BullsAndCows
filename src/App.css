@@ -21,6 +21,10 @@ html {
   border: 0; 
 }
 
+.pin-select{
+  display: flex;
+  flex-direction: column-reverse;
+}
 
 .pin-select-options{
   display: flex;
